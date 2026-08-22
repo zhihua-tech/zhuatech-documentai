@@ -1,4 +1,4 @@
-/* Copyright 2026 上海如静知华信息科技有限公司 */
+/* Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ */
 package cn.zhuatech.documentai.service;
 import jakarta.validation.constraints.*; import org.springframework.stereotype.Service; import java.util.*;
 /** 对OCR、字段完整性、版式与来源可信度进行文档质量判定。 */
