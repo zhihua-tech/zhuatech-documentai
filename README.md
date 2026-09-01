@@ -40,3 +40,7 @@ docker compose up --build
 | ![微信咨询一](docs/images/zhuatech-wechat-consulting.png) | ![微信咨询二](docs/images/zhuatech-wechat-consulting-2.png) |
 
 Copyright © 2026 上海如静知华信息科技有限公司
+
+## 企业级文档抽取发布
+
+新增 `POST /api/enterprise/documentai/extraction-release`，覆盖分类、安全、隐私、准确率、关键字段、人工复核、版本和审计，返回 `RELEASE / PILOT / BLOCKED`。详见 [抽取发布说明](docs/ENTERPRISE_EXTRACTION_RELEASE.md)。
