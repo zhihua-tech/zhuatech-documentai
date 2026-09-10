@@ -44,3 +44,7 @@ Copyright © 2026 上海如静知华信息科技有限公司
 ## 企业级文档抽取发布
 
 新增 `POST /api/enterprise/documentai/extraction-release`，覆盖分类、安全、隐私、准确率、关键字段、人工复核、版本和审计，返回 `RELEASE / PILOT / BLOCKED`。详见 [抽取发布说明](docs/ENTERPRISE_EXTRACTION_RELEASE.md)。
+
+## 字段级可信复核
+
+`POST /api/enterprise/documentai/field-review-decision` 对每个抽取字段执行必填、置信度、业务规则和个人信息脱敏校验，并在批次层处理来源哈希、篡改、重复、人工审批和复核职责分离，输出自动入库、人工复核、复核后入库或阻断。详见[字段复核说明](docs/ENTERPRISE_FIELD_REVIEW.md)。
