@@ -7,10 +7,16 @@ import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 class DocumentIngestionGovernanceServiceTest {
     private static final String HASH = "a".repeat(64);
     private final DocumentIngestionGovernanceService service = new DocumentIngestionGovernanceService();
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void acceptsTrustedAndGovernedDocument() {
         var result = service.evaluate(request(true, false, true, true, true,
@@ -20,6 +26,9 @@ class DocumentIngestionGovernanceServiceTest {
         assertThat(result.actions()).hasSize(2);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void sendsUntrustedOrDuplicateDocumentToReview() {
         var result = service.evaluate(request(false, true, false, true, true,
@@ -28,6 +37,9 @@ class DocumentIngestionGovernanceServiceTest {
         assertThat(result.reviewReasons()).hasSize(2);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void rejectsUnsafePersonalDocument() {
         var request = new DocumentIngestionGovernanceService.IngestionRequest(
@@ -40,6 +52,9 @@ class DocumentIngestionGovernanceServiceTest {
         assertThat(result.blockers()).hasSize(5);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     private DocumentIngestionGovernanceService.IngestionRequest request(
             boolean trusted, boolean duplicate, boolean overrideApproved,
             boolean encryption, boolean humanApproval,

@@ -15,9 +15,16 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
-/** 在 OCR 和字段抽取之前执行文件、来源、隐私、保留期与重复件治理。 */
+/**
+ * 在 OCR 和字段抽取之前执行文件、来源、隐私、保留期与重复件治理。
+ *
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class DocumentIngestionGovernanceService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public DecisionResult evaluate(IngestionRequest request) {
         List<String> blockers = new ArrayList<>();
         List<String> reviewReasons = new ArrayList<>();
@@ -69,12 +76,18 @@ public class DocumentIngestionGovernanceService {
         return result(Decision.ACCEPT, storageClass, effectiveRetentionDays, blockers, reviewReasons, actions);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     private DecisionResult result(Decision decision, String storageClass, int retentionDays,
                                   List<String> blockers, List<String> reviewReasons, List<String> actions) {
         return new DecisionResult(decision, storageClass, retentionDays, List.copyOf(blockers),
                 List.copyOf(reviewReasons), List.copyOf(actions));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record IngestionRequest(
             @NotBlank String documentId,
             @NotBlank String sourceSystem,
@@ -98,12 +111,24 @@ public class DocumentIngestionGovernanceService {
             @Min(1) @Max(36500) int maxRetentionDays
     ) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record DecisionResult(Decision decision, String storageClass, int effectiveRetentionDays,
                                  List<String> blockers, List<String> reviewReasons, List<String> actions) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public enum Decision { ACCEPT, REVIEW, REJECT }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public enum Classification {
         PUBLIC, INTERNAL, CONFIDENTIAL, RESTRICTED;
+        /**
+         * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+         */
         public boolean requiresEncryption() {
             return this == CONFIDENTIAL || this == RESTRICTED;
         }

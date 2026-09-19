@@ -7,9 +7,15 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 class ExtractionFieldReviewServiceTest {
     private final ExtractionFieldReviewService service = new ExtractionFieldReviewService();
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void autoReleasesCompleteHighConfidenceFields() {
         var result = service.evaluate(request(List.of(field("invoiceNo", "INV-100", 0.98,
@@ -19,6 +25,9 @@ class ExtractionFieldReviewServiceTest {
                 .containsExactly(ExtractionFieldReviewService.FieldStatus.ACCEPT);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void routesLowConfidenceAndDuplicateDocumentToReview() {
         var result = service.evaluate(request(List.of(field("amount", "1080.00", 0.66,
@@ -27,6 +36,9 @@ class ExtractionFieldReviewServiceTest {
         assertThat(result.reviewReasons()).hasSize(2);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void releasesReviewedFieldsWithIndependentApprover() {
         var result = service.evaluate(request(List.of(field("amount", "1080.00", 0.66,
@@ -34,6 +46,9 @@ class ExtractionFieldReviewServiceTest {
         assertThat(result.decision()).isEqualTo(ExtractionFieldReviewService.Decision.RELEASE_REVIEWED);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void blocksTamperingMissingValuesAndUnmaskedPii() {
         var result = service.evaluate(request(List.of(
@@ -44,6 +59,9 @@ class ExtractionFieldReviewServiceTest {
         assertThat(result.blockers()).hasSize(3);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     private ExtractionFieldReviewService.ReviewRequest request(
             List<ExtractionFieldReviewService.FieldResult> fields, boolean duplicate, boolean tamper,
             String reviewer, boolean approval, boolean finalApproval) {
@@ -52,6 +70,9 @@ class ExtractionFieldReviewServiceTest {
                 finalApproval, finalApproval);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     private ExtractionFieldReviewService.FieldResult field(String name, String value, double confidence,
                                                             boolean required, boolean pii, boolean masked,
                                                             boolean businessRulePassed) {

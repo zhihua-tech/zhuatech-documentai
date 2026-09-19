@@ -11,9 +11,16 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-/** 对文档抽取字段执行置信度、必填项、业务规则、隐私与复核职责分离决策。 */
+/**
+ * 对文档抽取字段执行置信度、必填项、业务规则、隐私与复核职责分离决策。
+ *
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class ExtractionFieldReviewService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public ReviewResult evaluate(ReviewRequest request) {
         List<String> blockers = new ArrayList<>();
         List<String> reviewReasons = new ArrayList<>();
@@ -75,6 +82,9 @@ public class ExtractionFieldReviewService {
                 "写入结构化数据并记录模板、模型和来源版本");
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record ReviewRequest(
             @NotBlank String documentId,
             @NotBlank String documentType,
@@ -93,14 +103,29 @@ public class ExtractionFieldReviewService {
             boolean finalApprovalComplete
     ) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record FieldResult(@NotBlank String name, String value,
                               @DecimalMin("0.0") @DecimalMax("1.0") double confidence,
                               boolean required, boolean pii, boolean masked, boolean businessRulePassed) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record FieldDecision(String name, FieldStatus status, String reason) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record ReviewResult(Decision decision, List<String> blockers, List<String> reviewReasons,
                                List<FieldDecision> fields, String nextAction) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public enum FieldStatus { ACCEPT, HUMAN_REVIEW, MASK_REQUIRED, REJECT }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public enum Decision { AUTO_RELEASE, HUMAN_REVIEW, RELEASE_REVIEWED, BLOCKED }
 }
