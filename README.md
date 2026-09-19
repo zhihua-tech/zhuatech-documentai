@@ -48,3 +48,7 @@ Copyright © 2026 上海如静知华信息科技有限公司
 ## 字段级可信复核
 
 `POST /api/enterprise/documentai/field-review-decision` 对每个抽取字段执行必填、置信度、业务规则和个人信息脱敏校验，并在批次层处理来源哈希、篡改、重复、人工审批和复核职责分离，输出自动入库、人工复核、复核后入库或阻断。详见[字段复核说明](docs/ENTERPRISE_FIELD_REVIEW.md)。
+
+## 文档接入治理门禁
+
+`POST /api/enterprise/documentai/ingestion-governance` 在 OCR 之前校验恶意文件扫描、哈希、可信来源、文件白名单、数据分类、个人信息处理依据、静态加密、重复件和保留期，输出 `ACCEPT / REVIEW / REJECT`，防止不合规文件进入模型和业务库。详见[接入治理说明](docs/ENTERPRISE_INGESTION_GOVERNANCE.md)。
