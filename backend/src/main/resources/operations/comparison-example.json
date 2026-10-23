@@ -1,0 +1,9 @@
+{
+  "patch": {
+    "successPages": "100",
+    "failedPages": "0",
+    "lowConfidence": "0",
+    "duplicatePages": "0"
+  },
+  "description": "成功且唯一页数改为100；失败且唯一页数改为0；成功中低置信度页改为0；额外重复页数改为0"
+}
