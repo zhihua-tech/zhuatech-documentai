@@ -1,0 +1,102 @@
+{
+  "slug": "documentai",
+  "title": "文档批次漏页与人工复核负载",
+  "fields": [
+    {
+      "key": "id",
+      "label": "记录编号",
+      "type": "ID"
+    },
+    {
+      "key": "expectedPages",
+      "label": "预期页数",
+      "type": "NUMBER",
+      "scale": 0,
+      "min": "1",
+      "max": "1000000"
+    },
+    {
+      "key": "successPages",
+      "label": "成功且唯一页数",
+      "type": "NUMBER",
+      "scale": 0,
+      "min": "0",
+      "max": "1000000"
+    },
+    {
+      "key": "failedPages",
+      "label": "失败且唯一页数",
+      "type": "NUMBER",
+      "scale": 0,
+      "min": "0",
+      "max": "1000000"
+    },
+    {
+      "key": "duplicatePages",
+      "label": "额外重复页数",
+      "type": "NUMBER",
+      "scale": 0,
+      "min": "0",
+      "max": "1000000"
+    },
+    {
+      "key": "lowConfidence",
+      "label": "成功中低置信度页",
+      "type": "NUMBER",
+      "scale": 0,
+      "min": "0",
+      "max": "1000000"
+    },
+    {
+      "key": "minutesPerPage",
+      "label": "每页人工分钟",
+      "type": "NUMBER",
+      "scale": 6,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "reviewCapacity",
+      "label": "可用人工分钟",
+      "type": "NUMBER",
+      "scale": 6,
+      "min": "0",
+      "max": "1000000000000"
+    }
+  ],
+  "columns": [
+    {
+      "key": "missingPages",
+      "label": "未处理页数"
+    },
+    {
+      "key": "reviewMinutes",
+      "label": "待复核分钟"
+    },
+    {
+      "key": "capacityGapMinutes",
+      "label": "复核容量缺口"
+    }
+  ],
+  "description": "对预期页数、成功页、失败页、重复页及低置信度页进行互斥/包含口径检查，计算未处理页和人工复核工作量。不做OCR或读取原文件。",
+  "owner": "上海如静知华信息科技有限公司",
+  "website": "https://www.zhuatech.cn/",
+  "authorization": "商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。",
+  "version": 1,
+  "notes": "输入均须为已获授权的同口径数据。金额固定人民币元；比例为百分数。核算结果只用于复核，未审批、未写库、未发起外部调用，也未触发付款、签名、资料销毁或设备控制。建议不构成法律、安全、会计或碳核证结论。",
+  "sample": {
+    "asOf": "2026-10-23",
+    "records": [
+      {
+        "id": "ITEM-001",
+        "expectedPages": "100",
+        "successPages": "95",
+        "failedPages": "3",
+        "duplicatePages": "2",
+        "lowConfidence": "5",
+        "minutesPerPage": "2",
+        "reviewCapacity": "20"
+      }
+    ]
+  }
+}

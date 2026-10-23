@@ -1,0 +1,68 @@
+[
+  {
+    "patch": {},
+    "expected": {
+      "decision": "HOLD",
+      "missingPages": "#2",
+      "reviewMinutes": "#16"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "successPages": "100",
+      "failedPages": "0",
+      "lowConfidence": "0",
+      "duplicatePages": "0"
+    },
+    "expected": {
+      "decision": "PASS"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "successPages": "100",
+      "failedPages": "0"
+    },
+    "expected": {
+      "decision": "REVIEW",
+      "reviewMinutes": "#10"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "successPages": "99",
+      "failedPages": "3"
+    },
+    "expected": {},
+    "error": true
+  },
+  {
+    "patch": {
+      "lowConfidence": "96"
+    },
+    "expected": {},
+    "error": true
+  },
+  {
+    "patch": {
+      "expectedPages": "0"
+    },
+    "expected": {},
+    "error": true
+  },
+  {
+    "patch": {
+      "successPages": "100",
+      "failedPages": "0",
+      "reviewCapacity": "9"
+    },
+    "expected": {
+      "decision": "HOLD",
+      "capacityGapMinutes": "#1"
+    },
+    "error": false
+  }
+]
